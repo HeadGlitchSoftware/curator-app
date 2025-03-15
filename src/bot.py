@@ -36,7 +36,7 @@ INPUT_ERRORS = {
     is_valid_image: "Invalid image! Please upload an image file.",
 }
 
-async def prompt_user(ctx, question, validation_func=None, timeout=60.0):
+async def prompt_user(ctx, question, validation_func=None, timeout=300.0):
     """Helper function to ask a user a question, validate input, and allow 'back'."""
     while True:
         await ctx.send(question)
@@ -96,10 +96,19 @@ async def help(ctx):
 
 # List of questions with their validation functions and associated tags
 questions = [
-    {"tag": "theme_name", "question": "What is the name of your theme?", "validation": None},
-    {"tag": "color_code", "question": "Please provide a valid color code.", "validation": is_valid_hex_name},
-    {"tag": "first_image", "question": "Please upload an image for your theme.", "validation": is_valid_image},
-    {"tag": "second_image", "question": "Please upload another image for your theme.", "validation": is_valid_image},
+    {"tag": "Theme Name",                   "question": "What is the name of your theme?",                              "validation": None},
+    {"tag": "Font",                         "question": "What is the font used in this theme?",                         "validation": None},
+    {"tag": "Background Color",             "question": "Enter the \"Background Color\" of your theme.",                "validation": is_valid_hex_name},
+    {"tag": "Input Color",                  "question": "Enter the \"Input Color\" of your theme.",                     "validation": is_valid_hex_name},
+    {"tag": "Command Color",                "question": "Enter the \"Command Color\" of your theme.",                   "validation": is_valid_hex_name},
+    {"tag": "Normal Text & Arrow Color",    "question": "Enter the \"Normal Text & Arrow Color\" of your theme.",       "validation": is_valid_hex_name},
+    {"tag": "Error Text Color",             "question": "Enter the \"Error Text Color\" of your theme.",                "validation": is_valid_hex_name},
+    {"tag": "Positive Text Color",          "question": "Enter the \"Positive Text Color\" of your theme.",             "validation": is_valid_hex_name},
+    {"tag": "Warning Text Color",           "question": "Enter the \"Warning Text Color\" of your theme.",              "validation": is_valid_hex_name},
+    {"tag": "Suggestions Color",            "question": "Enter the \"Suggestions Color\" of your theme.",               "validation": is_valid_hex_name},
+    {"tag": "Suggestion Bar Color",         "question": "Enter the \"Suggestion Bar Color\" of your theme.",            "validation": is_valid_hex_name},
+    {"tag": "Preview",                      "question": "Please upload a preview image of your theme.",                 "validation": is_valid_image},
+    {"tag": "Background",                   "question": "Please upload the background image used for your theme.",      "validation": is_valid_image},
 ]
 
 @curator.command()
