@@ -21,7 +21,7 @@ bot.remove_command('help')
 # Validation functions
 def is_valid_hex_name(name):
     """Validates that the theme name is an 8-character long hexadecimal string."""
-    return bool(re.fullmatch(r"^[0-9a-f]{8}$", name))
+    return bool(re.fullmatch(r"^[0-9a-f]{8}$", name.lower()))
 
 def is_valid_image(attachments):
     """Check if the message contains an image attachment."""
