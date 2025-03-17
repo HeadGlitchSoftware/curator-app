@@ -1,5 +1,6 @@
 #personal .env
 /src/local.env
+.env
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
