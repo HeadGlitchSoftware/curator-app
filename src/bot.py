@@ -77,6 +77,14 @@ def format_submission(author_id, *answers):
     # Return the formatted string
     return f"**Submitted by:** <@{author_id}>\n{formatted_answers}"
 
+# Ensure bot only listens to DMs
+@bot.event
+async def on_message(message):
+    if not isinstance(message.channel, discord.DMChannel):
+        return
+
+    await bot.process_commands(message)  # Process commands in DMs
+
 # Curator command group
 @bot.group(invoke_without_command=True)
 async def curator(ctx):
